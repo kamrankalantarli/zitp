@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+  {% block body %}
+<section class="banner-area relative about-banner" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Blog
+							</h1>
+							<p class="text-white link-nav"><a href="{% url 'home' %}">Əsas səhifə </a>  <span class="lnr lnr-arrow-right"></span>  <a href=""> Blog</a></p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+
+
+
+<section class="post-content-area">
+				<div class="container">
+
+
+					<div class="row">
+
+						<div class="col-lg-8 posts-list">
+							<div class="single-post row left">
+                            <div class="col-lg-12 col-md-9 ">
+							{% include 'blog/form.html' %}
+							</div>
+							</div>
+                            {% for x in post %}
+							<div class="single-post row">
+
+								<div class="col-lg-3  col-md-3 meta-details">
+
+									<div class="user-details row">
+										<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{x.user}}</a> <span class="lnr lnr-user"></span></p>
+										<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{x.publish|timesince}} </a> <span class="lnr lnr-calendar-full"></span></p>
+
+										<p class="comments col-lg-12 col-md-12 col-6"><a href="#">{{x.comments.all|length}} Comments</a> <span class="lnr lnr-bubble"></span></p>
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9 ">
+										{% load static%}
+							{% if x.image %}
+								<img src="{{x.image.url}}" class="img-fluid">
+							{% endif %}
+									<a class="posts-title" href="/blog/{{x.id}}/detail"><h3>{{x.title}}</h3></a>
+									<p class="excert">
+                                    {{x.content|linebreaks|truncatewords:9 }}
+									</p>
+									<a href="/blog/{{x.id}}/detail" class="primary-btn">Ətraflı</a>
+								</div>
+							</div>
+							{% endfor %}
+
+						</div>
+
+						<div class="col-lg-4 sidebar-widgets">
+							<div class="widget-wrap">
+								<div class="single-sidebar-widget search-widget">
+									<form class="search-form" action="#">
+			                            <input value="{{request.GET.q}}" placeholder="Axtarış et" name="q" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Axtariş et'">
+			                            <button type="submit"><i class="fa fa-search"></i></button>
+			                        </form>
+								</div>
+								<div class="single-sidebar-widget user-info-widget">
+									<img src="https://instagram.fgyd4-2.fna.fbcdn.net/vp/2a67232230f7d92bc9a2a7220749bcf7/5CF44DEB/t51.2885-19/s150x150/49808614_495227161002078_7676249208231297024_n.jpg?_nc_ht=instagram.fgyd4-2.fna.fbcdn.net" alt="">
+									<a href="#"><h4>{{ user }}</h4></a>
+									<p>
+										istfadeci
+									</p>
+									<ul class="social-links">
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-github"></i></a></li>
+										<li><a href="#"><i class="fa fa-behance"></i></a></li>
+									</ul>
+
+								</div>
+
+
+
+								<div class="single-sidebar-widget newsletter-widget">
+									<h4 class="newsletter-title">Xəbərlər</h4>
+									<p>
+										Abunə ol və xəbərləri izlə
+									</p>
+									<div class="form-group d-flex flex-row">
+									   <div class="col-autos">
+									      <div class="input-group">
+									        <div class="input-group-prepend">
+									          <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i>
+											</div>
+									        </div>
+									        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email daxil et" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+									      </div>
+									    </div>
+									    <a href="#" class="bbtns"></a>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+  {% endblock %}
+

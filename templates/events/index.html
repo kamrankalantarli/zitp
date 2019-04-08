@@ -1,0 +1,56 @@
+ {% extends 'base.html'%}
+ {% block body %}
+<section class="banner-area relative about-banner" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Tədbirlər
+							</h1>
+							<p class="text-white link-nav"><a href="{% url 'home' %}">Əsas səhifə </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Tədbirlər</a></p>
+						</div>
+					</div>
+				</div>
+</section>
+
+ <section class="events-list-area section-gap event-page-lists">
+				<div class="container">
+					<div class="row align-items-center">
+						{%for s in events_list%}
+						<div class="col-lg-6 pb-30">
+
+							<div class="single-carusel row align-items-center">
+								<div class="col-12 col-md-6 thumb">
+							{% load static%}
+							{% if s.image %}
+								<img src="{{s.image.url}}" class="img-fluid">
+							{% endif %}
+								</div>
+								<div class="detials col-12 col-md-6">
+									<p>{{s.publish}}</p>
+									<a href="/events/{{s.id}}/detail"><h4>{{s.title}}</h4></a>
+									<p>
+										{{s.content|truncatewords:32}}
+									</p>
+								</div>
+							</div>
+
+						</div>
+                        {%endfor%}
+					</div>
+				</div>
+			</section>
+ <section class="cta-two-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 cta-left">
+							<h1>Qeydiyyatdan kec  və blog yarat!</h1>
+						</div>
+						<div class="col-lg-4 cta-right">
+							<a class="primary-btn wh" href="/blog/index">Yazılmış bloglar</a>
+						</div>
+					</div>
+				</div>
+			</section>
+ {% endblock %}

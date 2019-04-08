@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+  {% block body %}
+<section class="banner-area relative about-banner" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Taninmiş Kurslar
+							</h1>
+							<p class="text-white link-nav"><a href="{% url 'home' %}">Əsas səhvə </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Kurslar</a></p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+<section class="popular-courses-area section-gap courses-page">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Taninmiş Kurslar</h1>
+								<p>Bizimlə əməkdaşliq edən kurslarmizla tanış olun.</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+
+                        {% for a in kurs_list %}
+						<div class="single-popular-carusel col-lg-3 col-md-6">
+							<div class="thumb-wrap relative">
+								<div class="thumb relative">
+									<div class="overlay overlay-bg"></div>
+                                    {% if a.image %}
+
+									<img class="img-fluid" src="{{a.image.url}}" alt="">
+                                    {% endif %}
+								</div>
+								<div class="meta d-flex justify-content-between">
+									<h4>{{a.height_field}}</h4>
+								</div>
+							</div>
+							<div class="details">
+								<a href="/kurs/{{a.id}}/detail">
+									<h4>
+										{{a.title}}
+									</h4>
+								</a>
+								<p>
+                                    {{a.content|truncatewords:12}}
+								</p>
+							</div>
+						</div>
+										{% endfor %}
+
+					</div>
+				</div>
+			</section>
+
+
+<section class="search-course-area relative" >
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row justify-content-between align-items-center">
+						<div class="col-lg-6 col-md-6 search-course-left">
+							<h1 class="text-white">
+								Yaz aylarinda kursumuzda<br>
+								boyuk endirim var!
+							</h1>
+							<p>
+								Müxtəlif yaş qrupları üçün nəzərdə tutulan bütün kurslarda dərsləri yüksək ixtisaslı peşəkarlar aparır.  Bu səbəbdən sizi yüksək ixtisaslı, peşəkar təcrübəyə və tədris sertifikatlarına malik müəllimlərlə təmin etməyi öhdəmizə götürürük. Müəllimlər tələbələrin uğuruna təminat verilməsində ən mühüm rol oynayırlar.
+							</p>
+							<div class="row details-content">
+								<div class="col single-detials">
+									<span class="lnr lnr-graduation-hat"></span>
+									<a href="#"><h4>Peşakar müəllimlər</h4></a>
+									<p>
+										Müəllimlərnizin peşakar dərsliklərindən və dərslərindən razı qalacaqsınız.
+									</p>
+								</div>
+								<div class="col single-detials">
+									<span class="lnr lnr-license"></span>
+									<a href="#"><h4>Sertifikatlaşdırma</h4></a>
+									<p>
+										Kursları uğurla bitirən tələbələr sertifikat ilə təmin olunur.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 search-course-right section-gap">
+							<form class="form-wrap" action="#">
+								<h4 class="text-white pb-20 text-center mb-30">Kurs axtar</h4>
+								<input type="text" class="form-control" name="ad soyad" placeholder="Adınız" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'">
+								<input type="phone" class="form-control" name="telefon" placeholder="Telefon Nömrəniz" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Phone Number'">
+								<input type="email" class="form-control" name="email" placeholder="Email Adresiniz" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'">
+								<div class="form-select" id="service-select">
+									<select style="display: none;">
+										<option datd-display="">Kursu sec</option>
+										<option value="1">Cisco</option>
+										<option value="2">Step academy</option>
+										<option value="3">Azi it kurs</option>
+										<option value="4">British it kursu</option>
+									</select>
+									<div class="nice-select" tabindex="0">
+										<span class="current">Kursu sec</span>
+										<ul class="list">
+											<li data-value="Choose Course" class="option selected">Kursu sec</li>
+											<li data-value="1" class="option">Cisco</li>
+											<li data-value="2" class="option">Step academy</li>
+											<li data-value="3" class="option">Azi it kurs</li>
+											<li data-value="4" class="option">British it kurs</li>
+										</ul>
+									</div>
+								</div>
+								<button class="primary-btn text-uppercase">Göndər</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section >
+				<div class="container" >
+					<div class="row">
+						<div style="padding: 75px">
+
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+
+
+
+
+  {% endblock %}
+

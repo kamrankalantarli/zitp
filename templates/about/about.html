@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+  {% block body %}
+
+    <section class="banner-area relative about-banner" id="home">
+      <div class="overlay overlay-bg"></div>
+      <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="about-content col-lg-12">
+            <h1 class="text-white">Haqqimizda</h1>
+            <p class="text-white link-nav"><a href="{% url 'home' %}">Əsas səhifə </a>
+              <span class="lnr lnr-arrow-right"></span>
+                <a href="#bir">Haqqimizda</a>
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="info-area pb-120">
+				<div class="container-fluid">
+					<div class="row align-items-center" style="padding: 75px">
+						<div class="col-lg-6 no-padding info-area-left" >
+                            {% load static %}
+							<img class="img-fluid" src="{% static 'img/about-sal.jpg'%}" alt="">
+						</div>
+						<div class="col-lg-6 info-area-right">
+							<h1>Azərbaycan texniki universteti haqqinda</h1>
+							<br>
+							<p>
+                                Azərbaycanda texniki təhsilin əsası ilk dəfə 1887-ci ilin noyabr ayının 10-da Bakı şəhər Duması tərəfindən Bakıda texniki məktəbin yaradılması ilə qoyulmuşdur. Əvvəlcə bu məktəbin mexanika şöbəsi üzrə 50, inşaat şöbəsi üzrə 55 nəfərdən ibarət buraxılışı olub. 1916-cı ildə məktəbdə artıq 494 tələbə təhsil alırdı. Onlardan cəmi 20 nəfəri azərbaycanlı tələbələr idi. 1918-ci ildə verilən qərara əsasən məktəb Politexnikum adlanır. Burada 188 nəfər tələbəsi olan neft sənayesi, elektromexanika və inşaat-memarlıq şöbələri fəaliyyət göstərirdi. O zaman Azərbaycanda cəmi 62 nəfər ali təhsillidən 12-i mühəndis idi.
+                                14 noyabr 1920-ci ildə Azərbaycan İnqilab Komitəsinin sədri Nəriman Nərimanovun dekreti ilə tərkibində neft sənayesi, memarlıq-inşaat və elektromexanika şöbələri olan Bakı Politexnik Məktəbinin bazasında ali texniki mütəxəssislər hazırlayan Bakı Politexnik İnstitutu yaradılmışdır. Bu İnstitutun tərkibində beş fakültə - neft sənayesi, elektromexanika, inşaat-mühəndis, kənd təsərrüfatı və iqtisadiyyat fakültələri var idi.
+							</p>
+						</div>
+					</div>
+				</div>
+	</section>
+
+
+
+  <section class="course-mission-area pb-120">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Goals to Achieve for the leadership</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+                    <div class="row">
+                        <div class="col-md-6 accordion-left">
+
+                            <!-- accordion 2 start-->
+                            <dl class="accordion">
+                                <dt>
+                                    <a href="" class="active">Uğurlarmız</a>
+                                </dt>
+                                <dd style="display: block;">
+                                  Azərbaycan Texniki Universitetinin Beynəlxalq Əlaqələr şöbəsi universitetin bir şöbəsi kimi 1980-ci ildə yaradılıb və müasir dövrün tələblərinə uyğun təşkili və strukturun optimallaşdırılması məqsədi ilə bu ilin aprel ayının 26-dan etibarən Beynəlxalq Əlaqələr Departamenti statutusunu almışdır. Departamentin bütün fəaliyyəti universitetin beynəlxalq əməkdaşlığının daha da inkişaf etdirilməsinə və gücləndirilməsinə yönəlmişdi
+                                </dd>
+                                <dt>
+                                    <a href="">Məlumat</a>
+                                </dt>
+                                <dd style="display: none;">
+                                    Bizim Universitetimiz 60 ildən artıqdır ki, elmin və texnikanın müxtəlif sahələrində kadr hazırlığı aparan, böyük ənənələrə və təcrübəyə malik bir elm ocağıdır
+                                 </dd>
+
+                            </dl>
+                            <!-- accordion 2 end-->
+                        </div>
+                        <div class="col-md-6 video-right justify-content-center align-items-center d-flex relative">
+                        	<div class="overlay overlay-bg"></div>
+							<a class="play-btn" href="https://www.youtube.com/watch?v=ubzcPtGnf8k">
+                                {% load static %}
+                                <img class="img-fluid mx-auto" src="{% static 'img/play.png' %}" alt=""></a>
+
+                        </div>
+                    </div>
+				</div>
+			</section>
+            <section class="cta-two-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 cta-left">
+							<h1>Qeydiyyatdan kec  və blog yarat!</h1>
+						</div>
+						<div class="col-lg-4 cta-right">
+							<a class="primary-btn wh" href="/blog/index">Yazılmış bloglar</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+
+  {% endblock %}
